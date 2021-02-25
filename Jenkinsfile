@@ -8,6 +8,7 @@ pipeline {
                 echo "${scm}"
                 echo "${scm.gitTool}"
                 echo "${scm.GIT_BRANCH}"
+                echo "${scm.branches}"
             }
         }
     }
