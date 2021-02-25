@@ -5,10 +5,12 @@ pipeline {
     stages {
         stage ('scm') {
             steps {
-                echo "${scm}"
-                echo "${scm.gitTool}"
-                echo "${scm.GIT_BRANCH}"
-                echo "${scm.branches}"
+                echo "${scm}"   // hudson.plugins.git.GitSCM@49667ef7
+                echo "${scm.gitTool}"   // null
+                echo "${scm.GIT_BRANCH}"    // GIT_BRANCH
+                echo "${scm.branches}"  // [${BRANCH}]
+                echo "${scm.remoteRepositories}"    // 
+                
             }
         }
     }
