@@ -15,8 +15,8 @@ pipeline {
                 
                     remote_repos = scm.remoteRepositories
                     first_repo = remote_repos[0]
-                    echo "first_repo.getName()"
-                    echo "first_repo.getURIs()"
+                    echo "${first_repo.getName()}"
+                    echo "${first_repo.getURIs()}"
                 }
             }
         }
