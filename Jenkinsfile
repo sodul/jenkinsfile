@@ -14,7 +14,7 @@ pipeline {
                     echo "scm.remoteRepositories: ${scm.remoteRepositories}"    // [org.eclipse.jgit.transport.RemoteConfig@54e2228a]
                     echo "scm.getRepositories: ${scm.getRepositories()}"     //
                     echo "scm.branches.dump(): ${scm.branches.dump()}"     //
-                    branch = scm.branches[0].name
+                    scmBranch = scm.branches[0].name
                     remote_repos = scm.remoteRepositories
                     echo "remote_repos = scm.remoteRepositories"
                     first_repo = remote_repos[0]
@@ -22,7 +22,10 @@ pipeline {
                     echo "${branch}"
                     echo "first_repo.getName(): ${first_repo.getName()}"
                     echo "first_repo.getURIs(): ${first_repo.getURIs()}"
-                    echo "${params.expand(branch)}"
+                    def engine = new groovy.text.SimpleTemplateEngine() //template engine
+                    def template = engine.createTemplate(scmBranch).make([:]<<params) //convert source string to template - making a copy of params because its immutability is freaking out the template engine
+                    String branch = template // convert template to string
+                    echo "Branch is: ${branch}"
                 }
             }
         }
