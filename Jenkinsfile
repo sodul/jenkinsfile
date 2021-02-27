@@ -14,8 +14,7 @@ pipeline {
                     echo "scm.remoteRepositories: ${scm.remoteRepositories}"    // [org.eclipse.jgit.transport.RemoteConfig@54e2228a]
                     echo "scm.getRepositories: ${scm.getRepositories()}"     //
                     echo "scm.branches.dump(): ${scm.branches.dump()}"     //
-                    branch = scm.branches[0]
-                    echo "branch.dump(): ${branch.dump()}"
+                    branch = scm.branches[0].name
                     remote_repos = scm.remoteRepositories
                     echo "remote_repos = scm.remoteRepositories"
                     first_repo = remote_repos[0]
