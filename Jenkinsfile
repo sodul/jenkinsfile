@@ -19,7 +19,7 @@ pipeline {
                     echo "${branch}"
                     echo "${first_repo.getName()}"
                     echo "${first_repo.getURIs()}"
-                    echo "$env.expand(branch)}"
+                    echo "${env.expand(branch)}"
                 }
             }
         }
