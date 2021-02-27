@@ -7,6 +7,7 @@ pipeline {
             steps {
                 script {
                     echo "${scm}"   // hudson.plugins.git.GitSCM@49667ef7
+                    echo "${scm.dump()}"
                     echo "${scm.gitTool}"   // null
                     echo "${scm.GIT_BRANCH}"    // GIT_BRANCH
                     echo "${scm.branches}"  // [${BRANCH}]
