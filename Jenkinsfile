@@ -13,7 +13,7 @@ pipeline {
                     echo "${scm.branches}"  // [${BRANCH}]
                     echo "${scm.remoteRepositories}"    // [org.eclipse.jgit.transport.RemoteConfig@54e2228a]
                     echo "${scm.getRepositories()}"     //
-                    branch = scm.branches[0]
+                    branch = toString(scm.branches[0])
                     remote_repos = scm.remoteRepositories
                     first_repo = remote_repos[0]
                     echo "${branch}"
